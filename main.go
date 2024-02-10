@@ -56,6 +56,9 @@ func DoGetRequestWithContext(ctx context.Context, url string) error {
 	if err != nil {
 		return err
 	}
+	if resp.StatusCode != 200 {
+		return fmt.Errorf("status code is not 200. Status code: %d", resp.StatusCode)
+	}
 	defer resp.Body.Close()
 	return nil
 }
