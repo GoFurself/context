@@ -9,8 +9,8 @@ import (
 )
 
 // This program sends multiple requests to different urls concurrently and cancels the requests after one of them is successful with 200 status code.
-// It main purpose is to show how to use context to cancel requests and how to use WaitGroup to wait for all requests to finish.
-// The idea can be used for example as a load balancer
+// Its main purpose is to show how to use context to cancel concurrency and how to use WaitGroup to wait for all requests to finish.
+// Principle can be used for example as a load balancer
 func main() {
 
 	urls := []string{
