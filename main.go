@@ -44,7 +44,6 @@ func main() {
 }
 
 func DoGetRequestWithContext(ctx context.Context, url string) error {
-
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
 		return err
