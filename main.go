@@ -8,6 +8,9 @@ import (
 	"time"
 )
 
+// This program sends multiple requests to different urls concurrently and cancels the requests after one of them is done.
+// It main purpose is to show how to use context to cancel requests and how to use WaitGroup to wait for all requests to finish.
+// The structure can be used as a load balancer
 func main() {
 
 	wg := sync.WaitGroup{}
@@ -29,8 +32,6 @@ func main() {
 
 		wg.Add(1)
 		go func(x int) {
-
-			// Send request to the server and get the response back
 			// If the context is cancelled, the request will be cancelled as well
 			RequestWithContext(ctx, &wg, urls[x], cancel)
 		}(i)
